@@ -36,10 +36,11 @@ class MainFragment : Fragment() {
         // 1. <users-permission> в manifest, также gradle
         // 2. Интерфейс лоудера (в entity), единственный метод принимает на вход
         //    стринговый url и контейнер для отображения
-        // 3. Реализация лоудера, где можно указать дополнительные преобразования
+        // 3. Класс лоудера, где можно указать дополнительные преобразования, в main
         // 4. Вызов лоудера:
         val imageLoader = GladeImageLoader()
         urlText.let { imageLoader.loadInto(it, view.findViewById(R.id.iv_glide)) }
+        // it - получается контейнер
 
         // Coil
         // 1. <users-permission> в manifest, также gradle
@@ -49,10 +50,10 @@ class MainFragment : Fragment() {
         // (засчет использования в Kotlin - extension functions)
         view.findViewById<ImageView>(R.id.iv_coil).load(urlText)
 
-        //для справки также для Coil:
-        //Из ресурсов -
+    //для справки также для Coil:
+        //2. Из ресурсов -
         // imageView.load(R.drawable.image)
-        //Из файла -
+        //3. Из файла -
         // imageView.load(File("/path/to/image.jpg"))
 
     }
